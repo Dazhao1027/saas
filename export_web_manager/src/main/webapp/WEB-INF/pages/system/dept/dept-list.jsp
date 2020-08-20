@@ -16,10 +16,27 @@
 </head>
 <script>
     function deleteById() {
-        var id = getCheckId()
+        var id = getCheckId();
         if(id) {
             if(confirm("你确认要删除此条记录吗？")) {
-                location.href="/system/dept/delete.do?id="+id;
+                //location.href="/system/dept/delete.do?id="+id;
+                $.ajax({
+                    url:"/system/dept/delete",
+                    data:{"id":id},
+                    type:"post",
+                    success:function (result) {
+                        if (result == "ok") {
+                            alert("删除成功");
+                            location.reload();
+                        }else {
+                            alert("删除失败，当前删除的部门有子部门，不能删除！")
+                        }
+                    },
+                    error:function () {
+                        alert("删除部门出现未知错误！")
+                    }
+                })
+
             }
         }else{
             alert("请勾选待处理的记录，且每次只能勾选一个")
@@ -86,7 +103,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${page.rows}" var="dept"  varStatus="st">
+                    <c:forEach items="${pageInfo.list}" var="dept"  varStatus="st">
                         <tr>
                             <td><input type="checkbox" name="id" value="${dept.id }"/></td>
                             <td>${st.count }</td>

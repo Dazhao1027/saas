@@ -15,10 +15,10 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
     <!-- 页面meta /-->
-    <link rel="stylesheet" href="plugins/ztree/css/zTreeStyle/zTreeStyle.css" type="text/css">
-    <script type="text/javascript" src="plugins/ztree/js/jquery-1.4.4.min.js"></script>
-    <script type="text/javascript" src="plugins/ztree/js/jquery.ztree.core-3.5.js"></script>
-    <script type="text/javascript" src="plugins/ztree/js/jquery.ztree.excheck-3.5.js"></script>
+    <link rel="stylesheet" href="/plugins/ztree/css/zTreeStyle/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="/plugins/ztree/js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="/plugins/ztree/js/jquery.ztree.core-3.5.js"></script>
+    <script type="text/javascript" src="/plugins/ztree/js/jquery.ztree.excheck-3.5.js"></script>
 
     <SCRIPT type="text/javascript">
 

@@ -1,5 +1,7 @@
 package com.liu.service.company.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.liu.dao.company.CompanyDao;
 import com.liu.domain.company.Company;
 import com.liu.service.company.CompanyService;
@@ -18,6 +20,16 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     public List<Company> findAll() {
         return companyDao.findAll();
+    }
+
+    @Override
+    public PageInfo<Company> findByPage(int pageNum, int pageSize) {
+        //pageHelper分页功能 自动对其后的第一个查询进行自动分页
+        PageHelper.startPage(pageNum,pageSize);
+
+        List<Company> list = companyDao.findAll();
+        PageInfo<Company> pageInfo = new PageInfo<>(list);
+        return pageInfo;
     }
 
     @Override
