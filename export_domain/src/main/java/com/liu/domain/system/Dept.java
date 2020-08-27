@@ -11,4 +11,7 @@ public class Dept {
     private String companyName;
     // 封装当前部门关联的上级部门  association
     private Dept parent;
+
+
+
 }

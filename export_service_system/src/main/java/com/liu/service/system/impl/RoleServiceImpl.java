@@ -7,6 +7,7 @@ import com.liu.domain.system.Role;
 import com.liu.service.system.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.UUID;
@@ -47,5 +48,27 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public void update(Role role) {
         roleDao.update(role);
+    }
+
+    @Override
+    public void updateRoleModule(String roleId, String moduleIds) {
+        //-- 1. 解除角色权限的关系
+        roleDao.deleteRoleModuleByRoleId(roleId);
+
+        //-- 2. 角色添加权限
+        if (!StringUtils.isEmpty(moduleIds)) {
+            String[] array = moduleIds.split(",");
+            if (array != null && array.length>0){
+                for (String moduleId : array) {
+                    roleDao.saveRoleModule(roleId,moduleId);
+                }
+            }
+        }
+    }
+
+    @Override
+    public List<Role> findUserRoleByUserId(String id) {
+
+        return roleDao.findUserRoleByUserId(id);
     }
 }

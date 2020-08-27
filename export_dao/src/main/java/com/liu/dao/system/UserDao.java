@@ -24,4 +24,10 @@ public interface UserDao {
 	void update(User user);
 
     Long findUserRoleByUserId(String id);
+
+    void deleteUserRoleByUserId(String userId);
+
+	void saveUserRole(String userId, String roleId);
+
+    User findByEmail(String email);
 }

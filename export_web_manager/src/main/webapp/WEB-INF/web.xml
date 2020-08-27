@@ -29,6 +29,25 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
+	<!--shiro 的代理过滤器 拦截器到请求后会吧认证授权的检验交给spring容器中的指定名称的bean-->
+	<filter>
+		<filter-name>shiroFilter</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+		<init-param>
+			<param-name>targetFilterLifecycle</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>shiroFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<error-page>
+		<exception-type>org.apache.shiro.authz.UnauthorizedException</exception-type>
+		<location>/WEB-INF/pages/unauthorized.jsp</location>
+	</error-page>
+
 	<!--3. springmvc前端控制器-->
 	<servlet>
 		<servlet-name>dispatcherServlet</servlet-name>
@@ -49,19 +68,6 @@
 		<!--<location>/WEB-INF/pages/error.jsp</location>-->
 	<!--</error-page>-->
 
-	<error-page>
-		<error-code>400</error-code>
-		<location>/WEB-INF/pages/error.jsp</location>
-	</error-page>
 
-	<error-page>
-		<error-code>403</error-code>
-		<location>/WEB-INF/pages/error.jsp</location>
-	</error-page>
-
-	<error-page>
-		<error-code>404</error-code>
-		<location>/WEB-INF/pages/error.jsp</location>
-	</error-page>
 	
 </web-app>

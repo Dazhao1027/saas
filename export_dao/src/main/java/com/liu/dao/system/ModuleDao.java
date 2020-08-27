@@ -21,4 +21,10 @@ public interface ModuleDao {
 
     //查询全部
     List<Module> findAll();
+
+    List<Module> findModuleByRoleId(String roleId);
+
+    List<Module> findModuleByUserId(String userId);
+
+    List<Module> findByBelong(String belong);
 }

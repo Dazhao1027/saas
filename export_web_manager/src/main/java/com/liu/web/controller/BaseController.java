@@ -1,5 +1,6 @@
 package com.liu.web.controller;
 
+import com.liu.domain.system.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -21,12 +22,16 @@ public abstract class BaseController {
      * 登录用户的企业id
      */
     public String getLoginCompanyId(){
-        return "1";
+        return getLoginUser().getCompanyId();
     }
     /**
      * 获取登陆用户的企业名称
      */
     public String getLoginCompanyName(){
-        return "传智播客教育股份有限公司";
+        return getLoginUser().getCompanyName();
+    }
+
+    public User getLoginUser(){
+        return (User) session.getAttribute("loginUser");
     }
 }

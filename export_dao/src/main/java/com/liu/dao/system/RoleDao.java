@@ -1,6 +1,7 @@
 package com.liu.dao.system;
 
 import com.liu.domain.system.Role;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -21,4 +22,10 @@ public interface RoleDao {
 
 	//更新
     void update(Role role);
+
+    void deleteRoleModuleByRoleId(String roleId);
+
+    void saveRoleModule(@Param("roleId") String roleId, @Param("moduleId") String moduleId);
+
+    List<Role> findUserRoleByUserId(String id);
 }

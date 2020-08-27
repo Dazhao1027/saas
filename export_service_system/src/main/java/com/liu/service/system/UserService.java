@@ -25,4 +25,8 @@ public interface UserService {
 
     //更新
     void update(User user);
+
+    void changeRole(String userId, String[] roleIds);
+
+    User findByEmail(String email);
 }

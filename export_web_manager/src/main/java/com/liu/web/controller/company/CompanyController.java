@@ -1,5 +1,6 @@
 package com.liu.web.controller.company;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.liu.domain.company.Company;
 import com.liu.service.company.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ import java.util.List;
 @RequestMapping("/company")
 public class CompanyController {
 
-    @Autowired
+    @Reference
     private CompanyService companyService;
 
     @RequestMapping("/list")

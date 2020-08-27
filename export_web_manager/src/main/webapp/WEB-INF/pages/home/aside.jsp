@@ -10,16 +10,15 @@
                 <img src="../img/user2-160x160.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p> ${sessionScope.user.userName}</p>
-                <a href="#">${sessionScope.user.companyName}</a>
+                <p> ${sessionScope.loginUser.userName}</p>
+                <a href="#">${sessionScope.loginUser.companyName}</a>
             </div>
         </div>
 
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="header">菜单</li>
-
-            <%--
+            <%--    动态菜单实现   --%>
                         <c:forEach items="${sessionScope.modules}" var="item">
                             <c:if test="${item.ctype==0}">
                                 <li class="treeview">
@@ -41,9 +40,8 @@
                                 </li>
                             </c:if>
                         </c:forEach>
-                         --%>
 
-           <li class="treeview">
+<%--           <li class="treeview">
                <a href="#">
                    <i class="fa fa-cube"></i> <span>Saas管理</span>
                    <span class="pull-right-container">
@@ -191,7 +189,7 @@
                      </a>
                  </li>
              </ul>
-         </li>
+         </li>--%>
 
                    </ul>
 

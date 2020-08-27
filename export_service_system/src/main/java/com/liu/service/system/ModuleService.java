@@ -25,4 +25,13 @@ public interface ModuleService {
 
     //更新
     void update(Module module);
+
+    /**
+     * 查询角色已经拥有的权限
+     * @param roleId
+     * @return
+     */
+    List<Module> findModuleByRoleId(String roleId);
+
+    List<Module> findModuleByUserId(String userId);
 }

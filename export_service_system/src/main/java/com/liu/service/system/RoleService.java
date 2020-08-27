@@ -24,4 +24,8 @@ public interface RoleService {
 
     //更新
     void update(Role role);
+
+    void updateRoleModule(String roleId, String moduleIds);
+
+    List<Role> findUserRoleByUserId(String id);
 }
